@@ -19,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configurable
 @EnableSwagger2
-public class Swagger2 {
+public class SwaggerConfig {
 
     @Bean
     public Docket testApi() {
@@ -30,8 +30,6 @@ public class Swagger2 {
                 .paths(PathSelectors.any())
                 .build();
     }
-
-
 
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfo("Boot  Blog ",//大标题

@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.MultipartConfigElement;
 
@@ -15,7 +15,9 @@ import javax.servlet.MultipartConfigElement;
 
 @SpringBootApplication
 @ServletComponentScan
-public class Application extends SpringBootServletInitializer {
+@EnableSwagger2  //
+
+public class BootBlogApplication {
 
     @Bean
     public MultipartConfigElement multipartConfigElement() {
@@ -27,7 +29,7 @@ public class Application extends SpringBootServletInitializer {
 //    启动的主入口
     public static void main(String[] args) {
 
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(BootBlogApplication.class, args);
 
     }
 }
