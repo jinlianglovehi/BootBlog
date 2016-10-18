@@ -55,10 +55,15 @@ public class UserController {
         return r;
     }
     @ApiOperation(value="创建用户", notes="根据User对象创建用户")
-    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="username",paramType="query",dataType="string"),
+            @ApiImplicitParam(name="psw",paramType="query",dataType="string")
+    })
+
     @RequestMapping(value="", method=RequestMethod.POST)
     public String postUser(@RequestBody User user) {
         users.put(user.getId(), user);
+        //   或者   @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
         return "success";
     }
     @ApiOperation(value="获取用户详细信息", notes="根据url的id来获取用户详细信息")

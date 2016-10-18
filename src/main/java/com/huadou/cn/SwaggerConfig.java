@@ -1,5 +1,6 @@
 package com.huadou.cn;
 
+import com.huadou.cn.plateform.model.User;
 import com.huadou.cn.plateform.model.UserInfo;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +25,7 @@ public class SwaggerConfig {
     @Bean
     public Docket testApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
+                .apiInfo(apiInfo()).ignoredParameterTypes(User.class)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.huadou.cn.controller"))
                 .paths(PathSelectors.any())
