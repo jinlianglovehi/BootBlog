@@ -61,7 +61,7 @@ public class UserController {
     })
 
     @RequestMapping(value="", method=RequestMethod.POST)
-    public String postUser(@RequestBody User user) {
+    public String postUser( User user) {
         users.put(user.getId(), user);
         //   或者   @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
         return "success";
@@ -78,7 +78,7 @@ public class UserController {
             @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
     })
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public String putUser(@PathVariable Long id, @RequestBody User user) {
+    public String putUser(@PathVariable Long id,  User user) {
         User u = users.get(id);
         u.setUsername(user.getUsername());
         users.put(id, u);

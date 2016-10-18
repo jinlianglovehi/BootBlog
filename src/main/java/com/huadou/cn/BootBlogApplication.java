@@ -15,7 +15,7 @@ import javax.servlet.MultipartConfigElement;
 
 @SpringBootApplication
 @ServletComponentScan
-@EnableSwagger2  //
+@EnableSwagger2  // 非常重要
 
 public class BootBlogApplication {
 
