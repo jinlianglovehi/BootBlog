@@ -29,16 +29,26 @@ public class DruidDataSourceConfig implements EnvironmentAware {
 
     @Bean
     public DataSource dataSource() {
-        System.out.println("注入druid！！！");
+        System.out.println("=================   注入druid！！！======================= ");
         DruidDataSource datasource = new DruidDataSource();
         datasource.setUrl(propertyResolver.getProperty("url"));
         datasource.setDriverClassName(propertyResolver.getProperty("driver-class-name"));
         datasource.setUsername(propertyResolver.getProperty("username"));
         datasource.setPassword(propertyResolver.getProperty("password"));
+
+        System.out.println("initial-size:" + propertyResolver.getProperty("initial-size"));
         datasource.setInitialSize(Integer.valueOf(propertyResolver.getProperty("initial-size")));
+
+        System.out.println("min-idle:" + propertyResolver.getProperty("min-idle"));
         datasource.setMinIdle(Integer.valueOf(propertyResolver.getProperty("min-idle")));
+
+        System.out.println("max-wait:" + propertyResolver.getProperty("max-wait"));
         datasource.setMaxWait(Long.valueOf(propertyResolver.getProperty("max-wait")));
+
+        System.out.println("max-active:" + propertyResolver.getProperty("max-active"));
         datasource.setMaxActive(Integer.valueOf(propertyResolver.getProperty("max-active")));
+
+        System.out.println("min-evictable-idle-time-millis:" + propertyResolver.getProperty("min-evictable-idle-time-millis"));
         datasource.setMinEvictableIdleTimeMillis(Long.valueOf(propertyResolver.getProperty("min-evictable-idle-time-millis")));
         try {
             datasource.setFilters("stat,wall");

@@ -19,18 +19,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configurable
 @EnableSwagger2
-public class SwaggerConfig {
-    /**
-     * 可以定义多个组，比如本类中定义把test和demo区分开了
-     * （访问页面就可以看到效果了）
-     *
-     */
+public class Swagger2 {
+
     @Bean
     public Docket testApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo()).ignoredParameterTypes(UserInfo.class)
+                .apiInfo(apiInfo())
                 .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.huadou.cn."))
+                .apis(RequestHandlerSelectors.basePackage("com.huadou.cn.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

@@ -15,7 +15,7 @@ import javax.servlet.MultipartConfigElement;
 
 @SpringBootApplication
 @ServletComponentScan
-public class BootBlogApplication extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer {
 
     @Bean
     public MultipartConfigElement multipartConfigElement() {
@@ -27,7 +27,7 @@ public class BootBlogApplication extends SpringBootServletInitializer {
 //    启动的主入口
     public static void main(String[] args) {
 
-        SpringApplication.run(BootBlogApplication.class, args);
+        SpringApplication.run(Application.class, args);
 
     }
 }
