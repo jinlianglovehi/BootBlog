@@ -16,7 +16,7 @@ import java.util.*;
  * Created by jinliang on 16/10/17.
  */
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
 
@@ -91,4 +91,5 @@ public class UserController {
         users.remove(id);
         return "success";
     }
+
 }
