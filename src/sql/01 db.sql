@@ -1,0 +1,10 @@
+
+
+-- 用户信息表
+CREATE TABLE IF NOT EXISTS userinfo (
+   id  INT(11) NOT NULL AUTO_INCREMENT,
+  username VARCHAR(45) DEFAULT NULL,
+  psw VARCHAR (20)DEFAULT NULL,
+  age  int(4) DEFAULT NULL,
+  PRIMARY KEY (id)
+);

@@ -1,14 +1,18 @@
-package com.huadou.cn.controller;
+package com.huadou.cn.plateform.controller;
 
+import com.huadou.cn.plateform.mapper.UserMapper;
 import com.huadou.cn.plateform.model.User;
-import com.huadou.cn.plateform.model.UserInfo;
-import io.swagger.annotations.Api;
+import com.huadou.cn.utils.PrintUtils;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.jcp.xml.dsig.internal.dom.Utils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
@@ -21,6 +25,7 @@ import java.util.*;
 public class UserController {
 
 
+     private static final String TAG  =UserController.class.getSimpleName();
 //    @RequestMapping("test")
 //    public String test(Model model){
 //        model.addAttribute("username","jinliang");
@@ -47,6 +52,10 @@ public class UserController {
 //        return userInfo;
 //    }
 
+
+
+    @Autowired
+    private UserMapper userMapper;
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
     @ApiOperation(value="获取用户列表", notes="")
     @RequestMapping(value={""}, method= RequestMethod.GET)
@@ -61,9 +70,11 @@ public class UserController {
     })
 
     @RequestMapping(value="", method=RequestMethod.POST)
+    @ResponseBody
     public String postUser( User user) {
         users.put(user.getId(), user);
-        //   或者   @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
+        int result = userMapper.insert(user.getUsername(),30);
+        PrintUtils.printData(TAG ,"postUser " ,"Result:"+result);
         return "success";
     }
     @ApiOperation(value="获取用户详细信息", notes="根据url的id来获取用户详细信息")

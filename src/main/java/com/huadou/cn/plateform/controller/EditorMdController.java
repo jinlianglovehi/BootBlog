@@ -1,7 +1,6 @@
-package com.huadou.cn.controller;
+package com.huadou.cn.plateform.controller;
 
 import com.huadou.cn.utils.PrintUtils;
-import com.sun.javadoc.Tag;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
