@@ -2,6 +2,7 @@ package com.huadou.cn.editormd.controller;
 
 import com.huadou.cn.editormd.mapper.EditorMdMapper;
 import com.huadou.cn.editormd.model.EditorMdModel;
+import com.huadou.cn.utils.PrintUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/editor")
 public class EditorMdController {
 
+    private static final String TAG = "EditorMdController";
 
     @Autowired
     private EditorMdMapper editorMdMapper;
@@ -31,5 +33,15 @@ public class EditorMdController {
         return "success" ;
     }
 
+    /**
+     * 编辑editor文档信息
+     * @return
+     */
+    @RequestMapping("edit")
+    public String editorIndex(){
+        PrintUtils.printData(TAG ,"editorIndex" ,"");
+
+        return "editormd/editormd_edit";
+    }
 
 }
