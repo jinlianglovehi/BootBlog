@@ -8,6 +8,42 @@
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
       <schema id="1" name="spring_boot"/>
+      <table id="2" parent="1" name="userinfo"/>
+      <table id="3" parent="1" name="markmdmodel"/>
+      <column id="4" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="5" parent="2" name="username">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="6" parent="2" name="psw">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="7" parent="2" name="age">
+        <data-type>int(4)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="10" parent="3" name="markmd">
+        <data-type>varchar(5000)</data-type>
+      </column>
+      <column id="11" parent="3" name="markPath">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="12" parent="3" name="createDate">
+        <data-type>date</data-type>
+      </column>
+      <key id="13" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
     </database-model>
   </data-source>
 </component>

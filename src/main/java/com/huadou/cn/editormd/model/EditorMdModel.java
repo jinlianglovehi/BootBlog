@@ -10,8 +10,8 @@ import java.util.Date;
 public class EditorMdModel {
 
     private Long id ;
+    private String title;
     private String markmd; // 保存的markdownd 实体对象
-
     private String markPath;// 将markdonw 文档保存到文件系统中
     private Date createDate ;
 
@@ -45,5 +45,13 @@ public class EditorMdModel {
 
     public void setMarkPath(String markPath) {
         this.markPath = markPath;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
