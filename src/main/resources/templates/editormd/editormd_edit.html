@@ -5,13 +5,16 @@
         <title>Simple example - Editor.md examples</title>
         <link rel="stylesheet" href="../../editormd/css/style.css"  />
         <link rel="stylesheet" href="../../editormd/css/editormd.css" />
+
+        <!--添加bootstrap 样式-->
+        <link rel="stylesheet" href="../../bootstarp/assets/css/bootstrap.min.css" />
+
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
     </head>
     <body>
         <div id="layout">
-            <header>
-                <h1>MarkDown 编辑器</h1>
-            </header>
+            <div th:replace="fragments/header :: header"></div>
+            <div> Markdown 编辑器</div>
             <div id="test-editormd">
                 <textarea style="display:none;">[TOC]
 
@@ -50,9 +53,10 @@
         </div>
         <script src="../../editormd/js/jquery.min.js"></script>
         <script src="../../editormd/js/editormd.min.js"></script>
+
+        <script src="../../bootstrap/assets/js/core/libraries/bootstrap.min.js"></script>
         <script type="text/javascript">
 			var testEditor;
-
             $(function() {
                 testEditor = editormd("test-editormd", {
                     width   : "90%",
