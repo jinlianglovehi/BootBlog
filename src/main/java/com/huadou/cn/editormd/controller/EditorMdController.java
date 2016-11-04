@@ -47,4 +47,11 @@ public class EditorMdController {
         return "editormd/editormd_edit";
     }
 
+    @RequestMapping("index")
+    public String index(){
+
+
+        return "main/index" ;
+    }
+
 }
